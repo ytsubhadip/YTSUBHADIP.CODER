@@ -111,7 +111,7 @@ const techStack = [
       { name: "scikit-learn", slug: "scikitlearn" },
       { name: "Hugging Face", slug: "huggingface" },
       { name: "LangChain", slug: "langchain" },
-      { name: "OpenAI", slug: "openai" },
+      { name: "TensorFlow", slug: "tensorflow" },
     ],
   },
   {
@@ -136,7 +136,7 @@ const techStack = [
     items: [
       { name: "JavaScript", slug: "javascript" },
       { name: "HTML5", slug: "html5" },
-      { name: "CSS3", slug: "css3" },
+      { name: "CSS3", slug: "css" },
       { name: "Git", slug: "git" },
       { name: "GitHub Actions", slug: "githubactions" },
       { name: "Vercel", slug: "vercel" },
