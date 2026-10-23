@@ -103,12 +103,68 @@ const projects = [
   },
 ];
 
-const skills = [
-  { group: "AI / ML", items: ["RAG pipelines", "LLM apps", "CNNs", "scikit-learn", "Prompting"] },
-  { group: "Data", items: ["Pandas", "NumPy", "Jupyter", "EDA", "Visualisation"] },
-  { group: "Backend", items: ["Python", "FastAPI", "Flask", "REST APIs", "Streamlit"] },
-  { group: "Web & Ops", items: ["JavaScript", "HTML/CSS", "Git & GitHub Actions", "Render", "Vercel"] },
+const techStack = [
+  {
+    group: "AI / ML",
+    items: [
+      { name: "PyTorch", slug: "pytorch" },
+      { name: "scikit-learn", slug: "scikitlearn" },
+      { name: "Hugging Face", slug: "huggingface" },
+      { name: "LangChain", slug: "langchain" },
+      { name: "TensorFlow", slug: "tensorflow" },
+    ],
+  },
+  {
+    group: "Data",
+    items: [
+      { name: "Python", slug: "python" },
+      { name: "Pandas", slug: "pandas" },
+      { name: "NumPy", slug: "numpy" },
+      { name: "Jupyter", slug: "jupyter" },
+    ],
+  },
+  {
+    group: "Backend",
+    items: [
+      { name: "FastAPI", slug: "fastapi" },
+      { name: "Flask", slug: "flask" },
+      { name: "Streamlit", slug: "streamlit" },
+    ],
+  },
+  {
+    group: "Web & Ops",
+    items: [
+      { name: "JavaScript", slug: "javascript" },
+      { name: "HTML5", slug: "html5" },
+      { name: "CSS3", slug: "css" },
+      { name: "Git", slug: "git" },
+      { name: "GitHub Actions", slug: "githubactions" },
+      { name: "Vercel", slug: "vercel" },
+      { name: "Render", slug: "render" },
+    ],
+  },
 ];
+
+function TechBadge({ name, slug, index }: { name: string; slug: string; index: number }) {
+  return (
+    <motion.span
+      initial={{ opacity: 0, scale: 0.5, y: 10 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.06, type: "spring", stiffness: 320, damping: 20 }}
+      whileHover={{ scale: 1.12, y: -3, rotate: -2 }}
+      className="inline-flex cursor-default items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1.5 text-xs text-secondary-foreground transition-colors hover:border-accent/60"
+    >
+      <img
+        src={`https://cdn.simpleicons.org/${slug}`}
+        alt={`${name} logo`}
+        loading="lazy"
+        className="h-4 w-4"
+      />
+      {name}
+    </motion.span>
+  );
+}
 
 function Magnetic({ children, href }: { children: React.ReactNode; href: string }) {
   return (
@@ -344,21 +400,24 @@ function Portfolio() {
         </div>
       </section>
 
-      {/* Skills */}
+      {/* Tech stack */}
       <section id="skills" className="mx-auto max-w-6xl px-6 py-28">
         <Reveal>
-          <h2 className="text-4xl font-bold md:text-6xl">Toolkit</h2>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 className="text-4xl font-bold md:text-6xl">Tech stack</h2>
+            <p className="text-sm text-muted-foreground">Tools I build with every day</p>
+          </div>
         </Reveal>
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {skills.map((s, i) => (
+          {techStack.map((s, i) => (
             <Reveal key={s.group} delay={i * 0.08}>
-              <div className="h-full rounded-2xl border border-border p-6">
+              <div className="h-full rounded-2xl border border-border p-6 transition-colors hover:border-accent/60 hover:card-glow">
                 <h3 className="text-sm uppercase tracking-[0.2em] text-accent">{s.group}</h3>
-                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                  {s.items.map((it) => (
-                    <li key={it}>{it}</li>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {s.items.map((it, bi) => (
+                    <TechBadge key={it.slug} name={it.name} slug={it.slug} index={bi} />
                   ))}
-                </ul>
+                </div>
               </div>
             </Reveal>
           ))}
