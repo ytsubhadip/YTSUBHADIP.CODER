@@ -313,10 +313,7 @@ function Portfolio() {
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
             <Reveal key={p.name} delay={(i % 3) * 0.08}>
-              <motion.a
-                href={p.href}
-                target="_blank"
-                rel="noreferrer"
+              <motion.div
                 data-magnetic
                 whileHover={{ y: -8 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
@@ -333,22 +330,39 @@ function Portfolio() {
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.blurb}</p>
                 </div>
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {p.stack.map((s) => (
-                    <span
-                      key={s}
-                      className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
+                <div className="mt-6">
+                  <div className="flex flex-wrap gap-2">
+                    {p.stack.map((s) => (
+                      <span
+                        key={s}
+                        className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-4 flex flex-wrap items-center gap-4 text-sm font-medium">
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-accent"
                     >
-                      {s}
-                    </span>
-                  ))}
-                  {p.live && (
-                    <span className="rounded-full bg-accent px-3 py-1 text-xs font-medium text-accent-foreground">
-                      Live
-                    </span>
-                  )}
+                      Code ↗
+                    </a>
+                    {p.live && (
+                      <a
+                        href={p.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-accent transition-opacity hover:opacity-80"
+                      >
+                        Live preview ↗
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </motion.a>
+              </motion.div>
             </Reveal>
           ))}
         </div>
