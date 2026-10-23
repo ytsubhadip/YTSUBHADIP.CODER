@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { Cursor } from "@/components/Cursor";
 import { Reveal } from "@/components/Reveal";
+import portrait from "@/assets/subhadip-portrait.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -299,6 +300,19 @@ function Portfolio() {
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1.2fr_1fr]">
           <Reveal>
             <div>
+              <motion.div
+                data-magnetic
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                className="relative mb-8 inline-block overflow-hidden rounded-2xl border border-border"
+              >
+                <img
+                  src={portrait.url}
+                  alt="Subhadip Bar — portrait"
+                  className="h-auto w-full max-w-[320px] object-cover"
+                />
+                <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5" />
+              </motion.div>
               <h2 className="text-4xl font-bold md:text-5xl">About</h2>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                 I'm Subhadip — a data science undergrad in Kolkata studying at ILEAD. I spend most of
