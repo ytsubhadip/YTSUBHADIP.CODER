@@ -134,13 +134,16 @@ const techStack = [
   {
     group: "Web & Ops",
     items: [
+      { name: "React", slug: "react" },
       { name: "JavaScript", slug: "javascript" },
       { name: "HTML5", slug: "html5" },
       { name: "CSS3", slug: "css" },
       { name: "Git", slug: "git" },
       { name: "GitHub Actions", slug: "githubactions" },
       { name: "Vercel", slug: "vercel" },
+      { name: "Netlify", slug: "netlify" },
       { name: "Render", slug: "render" },
+      { name: "Railway", slug: "railway" },
     ],
   },
 ];
