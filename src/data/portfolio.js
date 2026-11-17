@@ -3,6 +3,11 @@ export const PORTRAIT_URL =
 
 export const GITHUB = "https://github.com/ytsubhadip";
 export const LINKEDIN = "https://www.linkedin.com/in/subhadip-bar/";
+export const EMAIL = "ytsubhadip0099@gmail.com";
+
+// Google Drive file ID of the resume PDF.
+const RESUME_FILE_ID = "1woXIvYwuEugPZHrkI2OM2tCdSdFZAHNk";
+export const RESUME_DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_FILE_ID}`;
 export const projects = [
   {
     name: "Tube AI API",

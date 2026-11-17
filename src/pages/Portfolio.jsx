@@ -6,7 +6,15 @@ import { MarqueeSection } from "@/components/MarqueeSection";
 import { ProjectCard } from "@/components/ProjectCard";
 import { StatCard } from "@/components/StatCard";
 import { TechBadge } from "@/components/TechBadge";
-import { GITHUB, LINKEDIN, PORTRAIT_URL, projects, techStack } from "@/data/portfolio";
+import {
+  EMAIL,
+  GITHUB,
+  LINKEDIN,
+  PORTRAIT_URL,
+  RESUME_DOWNLOAD_URL,
+  projects,
+  techStack,
+} from "@/data/portfolio";
 
 export function Portfolio() {
   const rootRef = useRef(null);
@@ -19,7 +27,7 @@ export function Portfolio() {
   const portraitRef = useRef(null);
   const skillsRef = useRef(null);
   const contactRef = useRef(null);
-  const heroNameChars = "SUBHADIP BAR".split("");
+  const heroNameChars = "YT SUBHADIP".split("");
   useGSAP(
     () => {
       // 1. Reading progress bar pinned to top
@@ -454,11 +462,19 @@ export function Portfolio() {
 
           <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <p className="hero-bio max-w-md text-base leading-relaxed text-muted-foreground">
-              Final year data science student at ILEAD , Kolkata building retrieval-augmented AI
-              assistants, machine-learning APIs and full products that actually ship — 40+ public
-              repos and counting.
+              Final year data science student at ILEAD , Kolkata. Building RAG AI assistants,
+              machine learning APIs and full products that actually ship, 40+ public repos and
+              counting.
             </p>
             <div className="flex flex-wrap gap-3">
+              <GsapMagnetic
+                href={RESUME_DOWNLOAD_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="hero-cta-btn rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
+              >
+                Download Resume ↓
+              </GsapMagnetic>
               <GsapMagnetic
                 href={GITHUB}
                 target="_blank"
@@ -519,10 +535,10 @@ export function Portfolio() {
             <h2 className="text-4xl font-bold md:text-5xl">About</h2>
             <div className="mt-2 h-1 w-16 rounded-full bg-accent" />
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              I'm Subhadip — a 3rd-year data science undergrad in Kolkata studying at ILEAD. I spend
+              I'm Subhadip a final year data science undergrad in Kolkata studying at ILEAD. I spend
               most of my time turning models into things people can use: RAG chatbots over video and
-              lecture content, ML APIs, hackathon builds like an Aadhaar data analysis for the UIDAI
-              hackathon, and a SaaS exam platform for college labs.
+              lecture content, ML APIs, hackathon builds like an Aadhaar data analysis for the
+              UIDAI, Smart India Hackathon hackathon, and a SaaS exam platform for college labs.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               I care about shipping — deployed apps on Render, Vercel, Railway plus open source
@@ -599,6 +615,14 @@ export function Portfolio() {
           </h2>
           <div className="contact-cta mt-10 flex flex-wrap justify-center gap-4">
             <GsapMagnetic
+              href={RESUME_DOWNLOAD_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
+            >
+              Download Resume ↓
+            </GsapMagnetic>
+            <GsapMagnetic
               href={GITHUB}
               target="_blank"
               rel="noreferrer"
@@ -614,11 +638,17 @@ export function Portfolio() {
             >
               linkedin.com/in/subhadip-bar
             </GsapMagnetic>
+            <GsapMagnetic
+              href={`mailto:${EMAIL}`}
+              className="rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground hover:border-accent hover:text-accent"
+            >
+              {EMAIL}
+            </GsapMagnetic>
           </div>
         </div>
 
         <footer className="relative border-t border-border py-6 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Subhadip Bar 
+          © {new Date().getFullYear()} Subhadip Bar
         </footer>
       </section>
     </div>
