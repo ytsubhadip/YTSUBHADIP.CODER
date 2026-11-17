@@ -1,6 +1,5 @@
 @import "tailwindcss" source(none);
 @source "../src";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -166,5 +165,3 @@
 @utility backface-hidden {
   backface-visibility: hidden;
 }
-
-
