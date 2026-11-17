@@ -618,7 +618,7 @@ export function Portfolio() {
         </div>
 
         <footer className="relative border-t border-border py-6 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Subhadip Bar — powered by GSAP & ScrollTrigger.
+          © {new Date().getFullYear()} Subhadip Bar 
         </footer>
       </section>
     </div>
